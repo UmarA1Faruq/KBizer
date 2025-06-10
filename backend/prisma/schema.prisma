@@ -10,6 +10,16 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+// Buat Model User
+
+model tb_user {
+  id       Int      @id @default(autoincrement())
+  nama     String
+  email    String   @unique
+  password String
+  peran    String
 }
