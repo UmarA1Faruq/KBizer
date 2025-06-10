@@ -14,12 +14,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Peran {
+  ADMIN
+  USER
+}
 // Buat Model User
 
 model tb_user {
-  id       Int      @id @default(autoincrement())
-  nama     String
-  email    String   @unique
-  password String
-  peran    String
+  id        Int      @id @default(autoincrement())
+  nama      String
+  email     String   @unique
+  password  String
+  peran     Peran    @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
