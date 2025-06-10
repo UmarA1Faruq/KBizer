@@ -29,3 +29,14 @@ model tb_user {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// Buat Model Course
+model tb_course {
+  id        Int    @id @default(autoincrement())
+  judul     String
+  deskripsi String
+  gambar    String
+  file      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
