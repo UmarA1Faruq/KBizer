@@ -21,7 +21,7 @@ export default function HeroSection() {
                 <Link href="#recommendations">Get Recommendations</Link>
             </Button>
             </div>
-        <div>
+        <div className="mt-16 max-w-4xl mx-auto">
             <Image
             src="https://placehold.co/1200x600.png"
             alt="DevLearn platform showcase"
