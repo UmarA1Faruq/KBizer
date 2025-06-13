@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PrismaClient } from "@prisma/client";
+import { genSaltSync, hashSync } from "bcrypt-ts";
 import { NextRequest, NextResponse } from "next/server";
+
 
 
 // buat variabel prisma
@@ -60,11 +62,15 @@ export const POST = async (request: NextRequest) => {
     });
   }
 
+  // Enkripsi password
+  const password_salt = genSaltSync(10);
+  const password_result = hashSync(password_value, password_salt);
+
   const save = await prisma.tb_user.create({
     data: {
       nama: nama_value,
       email: email_value,
-      password: password_value,
+      password: password_result,
       peran: peran_value || "USER"
     }
   });
