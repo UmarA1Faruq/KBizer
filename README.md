@@ -13,6 +13,7 @@ Proyek ini merupakan aplikasi web fullstack yang terdiri dari:
 ```bash
 ├── 📁 backend/         # API dan server logic
 ├── 📁 frontend/        # Tampilan pengguna
+├── 📁 cms/             # Tampilan admin
 │── 📁 Dokumentasi/     # Panduan & dokumentasi teknis
 └── 📄 README.md        # Dokumentasi utama proyek
 ```
