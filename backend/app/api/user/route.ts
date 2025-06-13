@@ -37,3 +37,26 @@ export const GET = async (respon: NextRequest) => {
     })
 }
 
+// Buat Service "POST" tb_user
+export const POST = async (request: NextRequest) => {
+  const { nama_value, email_value, password_value, peran_value } = await request.json();
+
+  const save = await prisma.tb_user.create({
+    data: {
+      nama: nama_value,
+      email: email_value,
+      password: password_value,
+      peran: peran_value || "USER"
+    }
+  });
+
+  return NextResponse.json({
+    meta_data: {
+      error: 0,
+      message: "Data User Berhasil Ditambah",
+      status: 201
+    }
+  }, {
+    status: 201
+  });
+};
