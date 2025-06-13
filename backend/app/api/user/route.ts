@@ -41,6 +41,25 @@ export const GET = async (respon: NextRequest) => {
 export const POST = async (request: NextRequest) => {
   const { nama_value, email_value, password_value, peran_value } = await request.json();
 
+  // Validasi email unik
+  const checkEmail = await prisma.tb_user.findMany({
+    where: {
+      email: email_value
+    }
+  });
+
+  if (checkEmail.length >= 1) {
+    return NextResponse.json({
+      meta_data: {
+        error: 1,
+        message: "Data User Gagal Disimpan! Email Sudah Terdaftar!",
+        status: 400
+      }
+    }, {
+      status: 400
+    });
+  }
+
   const save = await prisma.tb_user.create({
     data: {
       nama: nama_value,
