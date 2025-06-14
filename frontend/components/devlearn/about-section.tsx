@@ -1,4 +1,5 @@
 // components/AboutSection.tsx
+import Image from "next/image";
 import React from "react";
 
 export default function AboutSection() {
@@ -12,7 +13,23 @@ export default function AboutSection() {
                         Empowering the next generation of developers through innovative and accessible learning experiences.
                     </p>
                 </div>
-            </div>
+                {/* Gambar */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <Image
+                            src="https://placehold.co/600x400.png"
+                            alt="Team collaboration or learning environment"
+                            width={600}
+                            height={400}
+                            className="rounded-lg shadow-xl"
+                            data-ai-hint="education technology team"
+                        />
+                    </div>
+                    <div className="space-y-8">
+                        {/* Items will be added here */}
+                    </div>
+                </div>
+                </div>
         </section>
     );
 }
