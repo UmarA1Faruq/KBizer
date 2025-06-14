@@ -1,4 +1,5 @@
 // components/AboutSection.tsx
+import { Target } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -26,10 +27,21 @@ export default function AboutSection() {
                         />
                     </div>
                     <div className="space-y-8">
-                        {/* Items will be added here */}
+                        <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-accent text-accent-foreground p-3 rounded-full">
+                                <Target className="h-6 w-6" />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-semibold text-primary mb-1">Our Mission</h3>
+                                <p className="text-foreground/80">
+                                    To provide high-quality, engaging, and personalized programming education to learners worldwide, irrespective of their background or experience.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
     );
 }
