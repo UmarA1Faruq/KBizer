@@ -1,5 +1,5 @@
 // components/AboutSection.tsx
-import { Target } from "lucide-react";
+import { Lightbulb, Target } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -35,6 +35,17 @@ export default function AboutSection() {
                                 <h3 className="text-xl font-semibold text-primary mb-1">Our Mission</h3>
                                 <p className="text-foreground/80">
                                     To provide high-quality, engaging, and personalized programming education to learners worldwide, irrespective of their background or experience.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-accent text-accent-foreground p-3 rounded-full">
+                                <Lightbulb className="h-6 w-6" />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-semibold text-primary mb-1">Our Vision</h3>
+                                <p className="text-foreground/80">
+                                    To be the leading platform for interactive coding education, fostering a global community of skilled and confident developers who can shape the future of technology.
                                 </p>
                             </div>
                         </div>
