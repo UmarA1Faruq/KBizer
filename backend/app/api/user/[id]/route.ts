@@ -139,33 +139,57 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
             })
         }
 
-    const { nama_value, email_value, password_value, peran_value } = await request.json();
+        //  buat variabel object untuk request
+        const { nama_value, email_value, password_value, peran_value } = await request.json()
 
-    // proses "PUT" data
-    const edit = await prisma.tb_user.update({
-        where: {
-            id: Number(params.id),
-        },
-        data: {
-            nama: nama_value,
-            email: email_value,
-            password: password_value,
-            peran: peran_value
+        // cek apakah email sudah pernah dibuat / belum
+        const checkEmail = await prisma.tb_user.findMany({
+            where: {
+                email: email_value,
+                NOT: {
+                    id: Number(params.id)
+                }
+            }
+        })
+
+        // Jika email ditemukan
+        if (checkEmail.length >= 1) {
+            return NextResponse.json({
+                meta_data: {
+                    error: 1,
+                    message: "Data User Gagal Disimpan! Email Sudah Terdaftar!",
+                    status: 400
+                },
+            }, {
+                status: 400
+            })
         }
-    });
 
-    // tampilkan hasil respon
-    return NextResponse.json({
-        meta_data: {
-            error: 0,
-            message: "Data User Berhasil Diubah",
+        // proses "PUT" data
+        const edit = await prisma.tb_user.update({
+            where: {
+                id: Number(params.id),
+            },
+            data: {
+                nama: nama_value,
+                email: email_value,
+                password: password_value,
+                peran: peran_value
+            }
+        })
+
+        // tampilkan hasil respon
+        return NextResponse.json({
+            meta_data: {
+                error: 0,
+                message: "Data User Berhasil Diubah",
+                status: 200
+            }
+        }, {
             status: 200
-        }
-    }, {
-        status: 200
-    });
-}
-catch (error: any) {
+        })
+    }
+    catch (error: any) {
         return NextResponse.json({
             meta_data: {
                 error: 1,
@@ -174,6 +198,6 @@ catch (error: any) {
             }
         }, {
             status: 400
-        });
+        })
     }
 }
