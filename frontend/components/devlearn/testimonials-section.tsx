@@ -1,3 +1,45 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+interface Testimonial {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+  avatarUrl?: string;
+  avatarFallback: string;
+  dataAiHint: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    quote: "DevLearn transformed my understanding of Python. The interactive lessons and AI recommendations were game-changers!",
+    name: "Alice Wonderland",
+    role: "Software Engineer",
+    avatarUrl: "https://placehold.co/100x100.png",
+    avatarFallback: "AW",
+    dataAiHint: "professional portrait"
+  },
+  {
+    id: "2",
+    quote: "I finally grasped complex JavaScript concepts thanks to DevLearn. The platform is intuitive and engaging.",
+    name: "Bob The Builder",
+    role: "Front-End Developer",
+    avatarUrl: "https://placehold.co/100x100.png",
+    avatarFallback: "BB",
+    dataAiHint: "developer headshot"
+  },
+  {
+    id: "3",
+    quote: "The personalized learning paths helped me focus on what truly mattered for my career goals. Highly recommended!",
+    name: "Charlie Brown",
+    role: "Data Scientist",
+    avatarUrl: "https://placehold.co/100x100.png",
+    avatarFallback: "CB",
+    dataAiHint: "student smiling"
+  },
+];
+
+
 export default function TestimonialsSection() {
     return (
         <section id="testimonials" className="py-16 md:py-24 bg-secondary">
