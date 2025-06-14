@@ -113,3 +113,34 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
         })
     }
 }
+
+// Buat service "PUT" (ubah data) user
+export const PUT = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
+    const params = await props.params;
+
+    const { nama_value, email_value, password_value, peran_value } = await request.json();
+
+    // proses "PUT" data
+    const edit = await prisma.tb_user.update({
+        where: {
+            id: Number(params.id),
+        },
+        data: {
+            nama: nama_value,
+            email: email_value,
+            password: password_value,
+            peran: peran_value
+        }
+    });
+
+    // tampilkan hasil respon
+    return NextResponse.json({
+        meta_data: {
+            error: 0,
+            message: "Data User Berhasil Diubah",
+            status: 200
+        }
+    }, {
+        status: 200
+    });
+};
