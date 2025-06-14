@@ -118,6 +118,27 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
 export const PUT = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
     const params = await props.params;
 
+    try {
+        // cek apakah "id" tersedia/tidak
+        const checkId = await prisma.tb_user.findUnique({
+            where: {
+                id: Number(params.id),
+            }
+        })
+
+        //Kondisi jika data tidak ditemukan
+        if (!checkId) {
+            return NextResponse.json({
+                meta_data: {
+                    error: 1,
+                    message: "Data User Tidak Ditemukan",
+                    status: 404
+                },
+            }, {
+                status: 404
+            })
+        }
+
     const { nama_value, email_value, password_value, peran_value } = await request.json();
 
     // proses "PUT" data
@@ -143,4 +164,16 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
     }, {
         status: 200
     });
-};
+}
+catch (error: any) {
+        return NextResponse.json({
+            meta_data: {
+                error: 1,
+                message: "Parameter Slug (ID) Harus Angka!",
+                status: 400
+            }
+        }, {
+            status: 400
+        });
+    }
+}
