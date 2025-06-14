@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { Quote } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
 
 interface Testimonial {
     id: string;
