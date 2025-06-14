@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
+import { genSaltSync, hashSync } from "bcrypt-ts";
 
 // buat variabel prisma
 const prisma = new PrismaClient();
@@ -165,6 +166,10 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
             })
         }
 
+        // Penambahan bcrypt
+        const password_salt = genSaltSync(10);
+        const password_result = hashSync(password_value, password_salt);
+
         // proses "PUT" data
         const edit = await prisma.tb_user.update({
             where: {
@@ -173,8 +178,8 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
             data: {
                 nama: nama_value,
                 email: email_value,
-                password: password_value,
-                peran: peran_value
+                password: password_result,
+                peran: peran_value || checkId.peran
             }
         })
 
