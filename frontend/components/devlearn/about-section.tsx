@@ -1,5 +1,5 @@
 // components/AboutSection.tsx
-import { Lightbulb, Target } from "lucide-react";
+import { Gem, Lightbulb, Target } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -46,6 +46,17 @@ export default function AboutSection() {
                                 <h3 className="text-xl font-semibold text-primary mb-1">Our Vision</h3>
                                 <p className="text-foreground/80">
                                     To be the leading platform for interactive coding education, fostering a global community of skilled and confident developers who can shape the future of technology.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0 bg-accent text-accent-foreground p-3 rounded-full">
+                                <Gem className="h-6 w-6" />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-semibold text-primary mb-1">Our Values</h3>
+                                <p className="text-foreground/80">
+                                    Innovation, Accessibility, Community, and a Passion for Continuous Learning. We believe in empowering individuals through knowledge.
                                 </p>
                             </div>
                         </div>
