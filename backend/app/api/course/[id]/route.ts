@@ -89,6 +89,18 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
             })
         }
 
+        // tampilkan hasil respon
+        return NextResponse.json({
+            meta_data: {
+                error: 0,
+                message: null,
+                status: 200
+            },
+            data_course: checkId
+        }, {
+            status: 200
+        })
+
     } catch (error: any) {
 
     }
