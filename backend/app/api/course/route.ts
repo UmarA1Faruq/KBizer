@@ -62,5 +62,15 @@ export const POST = async (request: NextRequest) => {
             status: 400
         })
     }
+
+    // proses POST data
+    const save = await prisma.tb_course.create({
+        data: {
+            judul: judul_value,
+            deskripsi: deskripsi_value,
+            gambar: gambar_value,
+            file: file_value
+          }
+    })
 }
 
