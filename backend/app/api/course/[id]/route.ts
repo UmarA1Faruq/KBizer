@@ -117,3 +117,8 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
     }
 
 }
+
+// Buat service "PUT" (ubah data) Course
+export const PUT = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
+
+}
