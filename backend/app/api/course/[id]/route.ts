@@ -123,7 +123,12 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
     const params = await props.params;
 
     try {
-        
+        // cek apakah "id" tersedia/tidak
+        const checkId = await prisma.tb_course.findUnique({
+            where: {
+                id: Number(params.id),
+            }
+        })
     } catch (error: any) {
 
     }
