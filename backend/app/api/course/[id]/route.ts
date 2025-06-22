@@ -7,5 +7,5 @@ import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export const DELETE = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
-  
+  const params = await props.params;
 };
