@@ -156,6 +156,20 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
             }
         })
 
+        // Jika judul ditemukan
+        if(checkJudul.length >=1)
+            {
+                return NextResponse.json({
+                    meta_data:{
+                        error: 1,
+                        message: "Data Course Gagal Disimpan! Judul Sudah Terdaftar!",
+                        status: 400
+                    },
+                },{
+                    status: 400
+                })
+            }
+
 
     } catch (error: any) {
 
