@@ -122,4 +122,10 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
 export const PUT = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
     const params = await props.params;
 
+    try {
+        
+    } catch (error: any) {
+
+    }
+
 }
