@@ -63,3 +63,7 @@ export const DELETE = async (request: NextRequest, props: { params: Promise<{ id
     }
 
 }
+
+// buat service "GET" (detail data) Course
+export const GET = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {  
+}
