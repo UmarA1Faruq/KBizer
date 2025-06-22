@@ -16,7 +16,20 @@ export const DELETE = async (request: NextRequest, props: { params: Promise<{ id
                 id: Number(params.id),
             }
         })
-        
+
+        //Kondisi jika data tidak ditemukan
+        if (!checkId) {
+            return NextResponse.json({
+                meta_data: {
+                    error: 1,
+                    message: "Data Course Tidak Ditemukan",
+                    status: 404
+                },
+            }, {
+                status: 404
+            })
+        }
+
     } catch (error: any) {
         return NextResponse.json({
             meta_data: {
