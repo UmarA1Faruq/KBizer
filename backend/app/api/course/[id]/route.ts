@@ -10,7 +10,13 @@ const prisma = new PrismaClient();
 export const DELETE = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
     const params = await props.params;
     try {
-        // logic
+        // cek apakah "id" tersedia/tidak
+        const checkId = await prisma.tb_course.findUnique({
+            where: {
+                id: Number(params.id),
+            }
+        })
+        
     } catch (error: any) {
         return NextResponse.json({
             meta_data: {
