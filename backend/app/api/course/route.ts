@@ -9,14 +9,17 @@ export const GET = async () => {
     const data = await prisma.tb_course.findMany({});
 
     // proses "GET" tampil data course
+    // Kondisi jika data tidak ditemukan
+    if(data.length == 0){
     return NextResponse.json({
         meta_data: {
-            error: 0,
-            message: null,
-            status: 200
+            error: 1,
+            message: "Data Course Tidak Ditemukan",
+            status: 404
         },
         data_course: data
     }, {
-        status: 200
-    });
-};
+        status: 404
+    })
+}
+}
