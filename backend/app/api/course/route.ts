@@ -40,5 +40,7 @@ export const GET = async () => {
 // Buat service "POST" Course
 export const POST = async (request: NextRequest) => {
   
+    //  buat variabel object untuk request
+    const {judul_value, deskripsi_value, gambar_value, file_value} = await request.json()
 }
 
