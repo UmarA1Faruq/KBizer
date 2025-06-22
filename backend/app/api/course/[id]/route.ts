@@ -93,7 +93,7 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
         return NextResponse.json({
             meta_data: {
                 error: 0,
-                message: null,
+                message: "Data Course Berhasil Ditemukan",
                 status: 200
             },
             data_course: checkId
@@ -102,6 +102,17 @@ export const GET = async (request: NextRequest, props: { params: Promise<{ id: s
         })
 
     } catch (error: any) {
+        // tampilkan hasil respon
+        return NextResponse.json({
+            meta_data: {
+                error: 1,
+                message: "Parameter Slug (ID) Harus Angka!",
+                status: 400
+            },
+
+        }, {
+            status: 400
+        })
 
     }
 
