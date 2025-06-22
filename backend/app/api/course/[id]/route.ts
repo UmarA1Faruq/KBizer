@@ -183,6 +183,18 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
               }
         })
 
+        // tampilkan hasil respon
+        return NextResponse.json({
+            meta_data:{
+                error: 0,
+                message: "Data Course Berhasil Diubah",
+                status: 200
+            },
+
+        },{
+            status: 200
+        })
+
 
     } catch (error: any) {
 
