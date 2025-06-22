@@ -50,6 +50,7 @@ export const DELETE = async (request: NextRequest, props: { params: Promise<{ id
         })
 
     } catch (error: any) {
+        // tampilkan hasil respon
         return NextResponse.json({
             meta_data: {
                 error: 1,
