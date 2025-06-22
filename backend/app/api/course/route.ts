@@ -35,3 +35,9 @@ export const GET = async () => {
         status: 200
     })
 }
+
+// Buat service "POST" Course
+export const POST = async (request: NextRequest) => {
+  
+}
+
