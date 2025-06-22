@@ -170,6 +170,19 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
                 })
             }
 
+        // proses PUT data
+        const edit = await prisma.tb_course.update({
+            where: {
+                id: Number(params.id),
+            },
+            data: {
+                judul: judul_value,
+                deskripsi: deskripsi_value,
+                gambar: gambar_value,
+                file: file_value
+              }
+        })
+
 
     } catch (error: any) {
 
