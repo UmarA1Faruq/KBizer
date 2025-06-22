@@ -22,4 +22,16 @@ export const GET = async () => {
         status: 404
     })
 }
+
+    // tampilkan hasil respon
+    return NextResponse.json({
+        meta_data:{
+            error: 0,
+            message: "Data Course Berhasil Ditemukan",
+            status: 200
+        },
+        data_course: data
+    },{
+        status: 200
+    })
 }
