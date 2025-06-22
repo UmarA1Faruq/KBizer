@@ -37,6 +37,18 @@ export const DELETE = async (request: NextRequest, props: { params: Promise<{ id
             }
         })
 
+        // tampilkan hasil respon
+        return NextResponse.json({
+            meta_data: {
+                error: 0,
+                message: "Data Course Berhasil Dihapus",
+                status: 200
+            },
+
+        }, {
+            status: 200
+        })
+
     } catch (error: any) {
         return NextResponse.json({
             meta_data: {
