@@ -143,6 +143,9 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
             })
         }
 
+        //  buat variabel object untuk request
+        const {judul_value, deskripsi_value, gambar_value, file_value} = await request.json()
+
 
     } catch (error: any) {
 
