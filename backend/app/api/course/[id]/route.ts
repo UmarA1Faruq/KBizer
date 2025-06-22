@@ -30,6 +30,13 @@ export const DELETE = async (request: NextRequest, props: { params: Promise<{ id
             })
         }
 
+        // Buat proses "DELETE"
+        const deleteData = await prisma.tb_course.delete({
+            where: {
+                id: Number(params.id),
+            }
+        })
+
     } catch (error: any) {
         return NextResponse.json({
             meta_data: {
