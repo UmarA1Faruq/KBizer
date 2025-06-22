@@ -42,5 +42,25 @@ export const POST = async (request: NextRequest) => {
   
     //  buat variabel object untuk request
     const {judul_value, deskripsi_value, gambar_value, file_value} = await request.json()
+
+    // cek apakah judul sudah pernah dibuat / belum
+    const checkJudul = await prisma.tb_course.findMany({
+        where:{
+            judul: judul_value
+        }
+    })
+    // Jika judul ditemukan
+    if(checkJudul.length >=1)
+    {
+        return NextResponse.json({
+            meta_data:{
+                error: 1,
+                message: "Data Course Gagal Disimpan! Judul Sudah Terdaftar!",
+                status: 400
+            },
+        },{
+            status: 400
+        })
+    }
 }
 
