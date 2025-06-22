@@ -72,5 +72,17 @@ export const POST = async (request: NextRequest) => {
             file: file_value
           }
     })
+
+    // tampilkan hasil respon
+    return NextResponse.json({
+        meta_data:{
+            error: 0,
+            message: "Data Course Berhasil Ditambah",
+            status: 201
+        },
+
+    },{
+        status: 201
+    })
 }
 
