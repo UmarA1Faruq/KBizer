@@ -146,6 +146,16 @@ export const PUT = async (request: NextRequest, props: { params: Promise<{ id: s
         //  buat variabel object untuk request
         const {judul_value, deskripsi_value, gambar_value, file_value} = await request.json()
 
+        // cek apakah judul sudah pernah dibuat / belum
+        const checkJudul = await prisma.tb_course.findMany({
+            where:{
+                judul: judul_value,
+                NOT:{
+                    id: Number(params.id)
+                }
+            }
+        })
+
 
     } catch (error: any) {
 
