@@ -11,6 +11,7 @@
   "dependencies": {
     "@genkit-ai/ai": "^1.13.0",
     "@genkit-ai/googleai": "^1.13.0",
+    "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-avatar": "^1.1.10",
@@ -40,7 +41,8 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.58.1",
     "recharts": "^2.15.3",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
