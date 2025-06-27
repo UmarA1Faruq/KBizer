@@ -18,7 +18,7 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <Image
-                            src="https://placehold.co/600x400.png"
+                            src="https://th.bing.com/th/id/OIP.yIXE3lDruYOkXqoR-ToztgHaD5?w=340&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
                             alt="Team collaboration or learning environment"
                             width={600}
                             height={400}
